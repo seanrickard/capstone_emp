@@ -9,5 +9,4 @@ RUN dotnet publish "./capstone.csproj" --output "./dist" --configuration Release
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine AS base
 WORKDIR /app
 COPY --from=build /source/dist .
-EXPOSE 80
 ENTRYPOINT ["dotnet", "capstone.dll"]
